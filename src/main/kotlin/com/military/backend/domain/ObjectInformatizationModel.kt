@@ -1,5 +1,7 @@
 package com.military.backend.domain
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.military.backend.serializer.CustomObjectInformatizationSerializer
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
@@ -8,6 +10,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "object_informatization")
+@JsonSerialize(using = CustomObjectInformatizationSerializer::class)
 data class ObjectInformatizationModel(
 
     @Id

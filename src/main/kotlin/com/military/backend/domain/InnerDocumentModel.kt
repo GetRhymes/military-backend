@@ -1,5 +1,7 @@
 package com.military.backend.domain
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.military.backend.serializer.CustomInnerDocumentSerializer
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.Hibernate
 import org.hibernate.annotations.CreationTimestamp
@@ -9,6 +11,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "inner_document")
+@JsonSerialize(using = CustomInnerDocumentSerializer::class)
 data class InnerDocumentModel(
 
     @Id
